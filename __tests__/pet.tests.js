@@ -18,5 +18,23 @@ describe("constructor", () => {
         pet.growUp();
         expect(pet.age).toEqual(1);
     });
+    it("set up the initial hunger", () =>{
+        const pet = new Pet("Fido");
+        expect(pet.hunger).toEqual(0);
+    });
+    it("growUp method it increase hunger", () => {
+        const pet = new Pet("Fido");
+        pet.growUp();
+        expect(pet.hunger).toEqual(5);
+    });
+    it("set up initial fitness to 10", () => {
+        const pet = new Pet("Fido");
+        expect(pet.fitness).toEqual(10);
+    });
+    it("set up fitness decrease when growing up", () => {
+        const pet = new Pet("Fido");
+        pet.growUp();
+        expect(pet.fitness).toEqual(7);
+    });
 });
 
