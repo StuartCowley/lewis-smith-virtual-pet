@@ -52,6 +52,18 @@ describe("constructor", () => {
         pet.walk();
         expect(pet.fitness).toEqual(10);
     });
-
+    it("decreases hunger of pet by 3", () => {
+        const pet = new Pet("Fido");
+        pet.hunger = 5;
+        pet.feed();
+        expect(pet.hunger).toEqual(2);
+    });
+    it("decreases hunger but not beneath zero", () => {
+        const pet = new Pet("Fido");
+        pet.hunger = 2;
+        pet.feed();
+        expect(pet.hunger).toEqual(0);
+    });
 });
 
+//feed to decrease hunger by 3 ; hunger should never be < 0
