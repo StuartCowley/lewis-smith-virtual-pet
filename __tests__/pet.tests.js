@@ -64,6 +64,10 @@ describe("constructor", () => {
         pet.feed();
         expect(pet.hunger).toEqual(0);
     });
+   
 });
-
-//feed to decrease hunger by 3 ; hunger should never be < 0
+//create a checkUp method on the Pet function that exemplifies the below:
+// if pet fitness < 3 `I need a walk`;
+// if pet hunger >= 5 `I am hungry`;
+// if both of the above are true, `I am hungry AND I need a walk`;
+// if both of the above are false, `I feel great!'
