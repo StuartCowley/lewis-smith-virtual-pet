@@ -36,7 +36,7 @@ describe("constructor", () => {
         pet.growUp();
         expect(pet.fitness).toEqual(7);
     });
-    it("walking pet increases fitness", () => {
+    it("walking pet increases fitness by 4", () => {
         const pet = new Pet("Fido");
         pet.fitness = 0;
         pet.walk();
@@ -63,6 +63,14 @@ describe("constructor", () => {
         pet.hunger = 2;
         pet.feed();
         expect(pet.hunger).toEqual(0);
+    });
+    it("fitness less than three and hunger greater than or equal to five", () => {
+        const pet = new Pet("Fido");
+        pet.fitness = 2;
+        pet.hunger = 5;
+        pet.checkUp();
+        expect(pet.feeling).toEqual("I am hungry AND I need a walk");
+    
     });
    
 });
