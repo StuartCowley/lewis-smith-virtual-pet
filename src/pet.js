@@ -22,12 +22,18 @@ function Pet(name) {
     };
 
     Pet.prototype.growUp = function(){
+        if(!this.isAlive){
+            throw new Error('Your pet is no longer alive :(');
+        }
         this.age += GROWUP_AGE_INCREMENT;
         this.hunger += GROWUP_HUNGER_INCREMENT;
         this.fitness -= GROWUP_FITNESS_DECREMENT;
     };
 
     Pet.prototype.walk = function(){
+        if(!this.isAlive){
+            throw new Error('Your pet is no longer alive :(');
+        }
         if ((this.fitness + INITIAL_FITNESS) <= MAXIMUM_FITNESS) {
         this.fitness += INITIAL_FITNESS;
     }   else {
