@@ -13,6 +13,7 @@ function Pet(name) {
     this.hunger = INITIAL_HUNGER;
     this.fitness = MAXIMUM_FITNESS;
     this.feeling = "absence of thought";
+    this.children = [];
     };
 
     Pet.prototype = {
@@ -70,11 +71,15 @@ function Pet(name) {
 
     
    
-//if pet fitness 0 or less then false;
-//if pet hunger > 10 then false;
-//if pet age > 30 then return false;
-//otherwsie return true;
+Pet.prototype.adoptChild = function(child){
+    this.children.push(child);
+};
 
+
+Pet.prototype.haveBaby = function(babyNames){
+    const child = new Pet(babyNames);
+    this.children.push(child);
+};
 
 
 module.exports = Pet;

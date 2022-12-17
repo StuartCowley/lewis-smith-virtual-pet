@@ -127,3 +127,44 @@ describe('isAlive', () => {
         expect(pet.isAlive).toEqual(false);
     });
 });
+
+describe('adoptChild - one instance is parent, the other child', () => {
+    it('test parent takes child instance', () => {
+        const parent = new Pet('Javier');
+        const child = new Pet("Isaac");
+        parent.adoptChild(child);
+        expect(parent.children[0]).toMatchObject(child);
+    });
+    it('parent feeds child', () => {
+        const parent = new Pet('Javier');
+        const child = new Pet('Isaac');
+        parent.adoptChild(child);
+        expect(child.hunger).toEqual(0);
+
+        parent.children[0].growUp(); //hunger 5;
+        expect(child.hunger).toEqual(5);
+
+        parent.children[0].feed(); //reduce hunger by 3;
+        expect(child.hunger).toEqual(2);
+    });
+});
+
+describe('haveBaby', () => {
+    it('creating a new pet inside pet instance', () => {
+        const parent = new Pet('Dave');
+        parent.haveBaby('Amelia');
+        expect(parent.children[0].name).toBe('Amelia');
+        expect(parent.children[0].hunger).toEqual(0);
+        expect(parent.children[0]).toBeInstanceOf(Pet);
+
+        parent.haveBaby('Ezekiel');
+        expect(parent.children[1].name).toBe('Ezekiel');
+        expect(parent.children[1].hunger).toEqual(0);
+        expect(parent.children[1]).toBeInstanceOf(Pet);
+    });
+});
+
+
+
+
+  
