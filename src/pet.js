@@ -15,6 +15,12 @@ function Pet(name) {
     this.feeling = "absence of thought";
     };
 
+    Pet.prototype = {
+        get isAlive() {
+            return this.age < 30 && this.hunger < 10 && this.fitness > 0;
+        }
+    };
+
     Pet.prototype.growUp = function(){
         this.age += GROWUP_AGE_INCREMENT;
         this.hunger += GROWUP_HUNGER_INCREMENT;
@@ -30,6 +36,9 @@ function Pet(name) {
     };
 
     Pet.prototype.feed = function(){
+        if(!this.isAlive){
+            throw new Error('Your pet is no longer alive :(');
+        }
        if((this.hunger - FEED_HUNGER_DECREMENT) >= INITIAL_HUNGER) {
         this.hunger -= FEED_HUNGER_DECREMENT;
        } else {
@@ -38,23 +47,28 @@ function Pet(name) {
     };
 
     Pet.prototype.checkUp = function(){
-       if(this.fitness <= 3 && this.hunger >= 5) {
+        const UNFIT = this.fitness <= 3;
+        const HUNGRY = this.hunger >= 5;
+        const FIT = this.fitness > 3;
+        const NOTHUNGRY = this.hunger < 5;
+       if(UNFIT && HUNGRY) {
         return this.feeling = "I am hungry AND I need a walk";
-       } else if(this.fitness > 3 && this.hunger < 5) {
+       } else if(FIT && NOTHUNGRY) {
             return this.feeling = "I feel great";
-        } else if(this.fitness <= 3 && this.hunger < 5) {
+        } else if(UNFIT) {
             return this.feeling = "I need a walk";
         } else {
            return this.feeling = "I am hungry";
         }
     };
-   
 
-//create a checkUp method on the Pet function that exemplifies the below:
-// if pet fitness < 3 `I need a walk`;
-// if pet hunger >= 5 `I am hungry`;
-// if both of the above are true, `I am hungry AND I need a walk`;
-// if both of the above are false, `I feel great!'
+    
+   
+//if pet fitness 0 or less then false;
+//if pet hunger > 10 then false;
+//if pet age > 30 then return false;
+//otherwsie return true;
+
 
 
 module.exports = Pet;
