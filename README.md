@@ -1,27 +1,24 @@
 # Virtual Pet
 
-**Real pets are great, but they do have drawbacks. They smell. Your mum might be allergic to them. Maybe you just aren't allowed one in your flat.**
+## The repository contains test cases for a pet.js file that constructs a *Virtual Pet object*, that has numerous properties, including methods attributed to prototypes.
+-----
 
-_To solve these problems, we're going to make our own JavaScript pets._
+    The pets created will have the following features:
 
-## JavaScript pets are great. Because they're made of JavaScript, they can do literally anything, and they don't have any of the drawbacks of regular pets. They don't even pee or poo 💩 (unless you program them too, you weirdo).
+        a name;
 
-The pets we're going to make will have the following features:
+        They can get older;
 
-You can give them:
+        As they get older, they get hungrier and less fit;
 
-* a name
+        You can walk your pet to increase it's fitness; 🏃‍♂️
 
-* They can get older
+        You can feed your pet to decrease it's hunger; 🍕
 
-* As they get older, they get hungrier and less fit
+        You can talk to your pet to see if it needs feeding or walking;
 
-* You can walk your pet to increase it's fitness. 🏃‍♂️
+        If your pet gets too hungry or unfit, it will DIE; 💀
 
-* You can feed your pet to decrease it's hunger. 🍕
-
-* You can talk to your pet to see if it needs feeding or walking
-
-* If your pet gets too hungry or unfit, it will DIE 💀
-
-* If your pet gets to 30 days old it will DIE 😢
+        If your pet gets to 30 days old it will DIE. 😢
+    
+-----
